@@ -33,20 +33,20 @@ export class CategoryController {
 	}
 	@HttpCode(200)
 	@Post()
-	async create() {
+	async createCategory() {
 		return this.categoryService.create();
 	}
 
-	@UsePipes(ValidationPipe)
+	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Put(":id")
-	async update(@Param("id") id: string, @Body() dto: CategoryDto) {
+	async updateCategory(@Param("id") id: string, @Body() dto: CategoryDto) {
 		return this.categoryService.update(id, dto);
 	}
 
 	@HttpCode(200)
 	@Delete(":id")
-	async delete(@Param("id") id: string) {
+	async deleteCategory(@Param("id") id: string) {
 		return this.categoryService.delete(id);
 	}
 }
